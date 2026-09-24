@@ -1,12 +1,10 @@
 """
-Root Launcher
-=============
-Main entrypoint for running the Local AI Discord Bot (`python bot.py`).
+Bot Package
+===========
+Lightweight, Privacy-Focused Local AI Discord Bot.
 """
 
-from __future__ import annotations
-
-from bot import (
+from bot.config import (
     COMMAND_PREFIX,
     DEFAULT_SYSTEM_PERSONA,
     DISCORD_TOKEN,
@@ -21,14 +19,11 @@ from bot import (
     SYSTEM_PERSONA,
     TEMPERATURE,
     TOP_P,
-    Bot,
-    DuckDuckGoScraper,
-    LocalLLMClient,
-    bot,
-    chunk_message,
-    main,
-    resolve_chat_endpoint,
 )
+from bot.chunker import chunk_message
+from bot.scraper import DuckDuckGoScraper
+from bot.llm import LocalLLMClient, resolve_chat_endpoint
+from bot.client import Bot, bot, main
 
 __all__ = [
     "COMMAND_PREFIX",
@@ -53,6 +48,3 @@ __all__ = [
     "bot",
     "main",
 ]
-
-if __name__ == "__main__":
-    main()
